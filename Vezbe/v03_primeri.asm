@@ -2,7 +2,10 @@
 ; ispis na ekranu u novi red  
 
 novired proc
-    push ax push bx push cx push dx
+    push ax 
+    push bx 
+    push cx 
+    push dx
     mov ah, 03
     mov bh, 0
     int 10h
@@ -10,7 +13,10 @@ novired proc
     mov dl,0
     mov ah, 02
     int 10h
-    pop dx pop cx pop bx pop ax
+    pop dx 
+    pop cx 
+    pop bx 
+    pop ax
     ret
 novired endp     
 
@@ -26,6 +32,7 @@ read macro c
     pop ax
 endm
 
+
 ; Napisati makro koji ispisuje jedan znak na ekran
 
 read macro c   
@@ -35,6 +42,7 @@ read macro c
     int 21h
     pop dx, ax
 endm   
+
 
 ; Napisati makro koji ucitava jedan znak sa tastature
 ; i NE prikazuje ga na ekranu
@@ -47,21 +55,28 @@ read macro c
     pop ax
 endm     
 
+
 ; Napisati makro koji ispisuje string na ekran    
 
 writeString macro s
-    push ax, dx
+    push ax
+    push dx  
     mov dx, offset s
-    ; string se mora zavrsiti znakom '$'
     mov ah, 09
     int 21h
-    pop dx, ax
-end macro     
-    
+    pop dx
+    pop ax
+endm
+ 
+ 
 ; Napisati proceduru koja ucitava string sa tastature
 
 readString proc
-    push ax push bx push cx push dx push si
+    push ax 
+    push bx 
+    push cx 
+    push dx 
+    push si
     mov bp, sp
     mov dx, [bp+12]
     mov bx, dx
@@ -79,7 +94,11 @@ kopiraj:
     inc si
     loop kopiraj
     mov [si], '$'
-    pop si pop dx pop cx pop bx pop ax
+    pop si 
+    pop dx 
+    pop cx 
+    pop bx 
+    pop ax
     ret
 readString endp
     
