@@ -1,3 +1,5 @@
+; Napisati proceduru koja proverava da li je uneti string palindrom 
+
 data_seg SEGMENT
     string db 'tenet$'
     ispis01 db 'String je palindrom.$'
