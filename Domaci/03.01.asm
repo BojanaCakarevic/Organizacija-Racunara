@@ -2,7 +2,7 @@
 ; i da negativni brojevi nisu dozvoljeni
 
 data_seg SEGMENT
-   niz db 3,2,55,6,1,0
+   niz db 3,2,5,6,1,0
    unos01 db "Niz je sortiran. $" 
 data_seg ENDS  
        
